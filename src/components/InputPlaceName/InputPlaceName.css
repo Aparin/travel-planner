@@ -1,0 +1,11 @@
+input.input {
+    border: 2px lightblue solid;
+    padding: 5px;
+    width: 316px;
+    display: block;
+    margin: 0px auto;
+    margin-bottom: 6px;
+    height: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+}

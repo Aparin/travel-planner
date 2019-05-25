@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App App snapshot 1`] = `
-<h1>
-  Travel Planner
-</h1>
+Array [
+  <h1>
+    Travel Planner
+  </h1>,
+  <input
+    className="input"
+    id="NewPlaceName"
+    onChange={[Function]}
+    onKeyUp={[Function]}
+    placeholder="Введите название места и нажмите 'Enter'"
+    type="text"
+    value=""
+  />,
+]
 `;
