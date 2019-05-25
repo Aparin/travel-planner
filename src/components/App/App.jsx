@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import ErrorBoundary from '../ErrorBoundary';
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class App extends Component {
 
   render() {
     return (
-      <h1>Travel Planner</h1>
+      <ErrorBoundary>
+        <h1>Travel Planner</h1>
+      </ErrorBoundary>
     );
   }
 }
