@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ErrorBoundary from '../ErrorBoundary';
 import InputPlaceName from '../InputPlaceName';
+import Place from '../Place';
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends Component {
       <ErrorBoundary>
         <h1>Travel Planner</h1>
         <InputPlaceName addPoint={this.addPoint} />
+        <Place id={1} name="name" deletePlace={() => {}} />
       </ErrorBoundary>
     );
   }

@@ -1,0 +1,9 @@
+span.name {
+    width: 270px;
+    display: inline-block;
+    margin: 0px auto;
+    padding-left: 10px;
+    color: blue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
