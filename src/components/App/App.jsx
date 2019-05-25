@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import './App.css';
 import ErrorBoundary from '../ErrorBoundary';
 import InputPlaceName from '../InputPlaceName';
-import Place from '../Place';
+import PlaceList from '../PlaceList';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      names: [],
+      names: ['1', '2'],
+      keys: [1, 2],
     };
   }
 
@@ -22,12 +23,18 @@ class App extends Component {
     });
   }
 
+  deletePlace = () => {};
+
   render() {
     return (
       <ErrorBoundary>
         <h1>Travel Planner</h1>
         <InputPlaceName addPoint={this.addPoint} />
-        <Place id={1} name="name" deletePlace={() => {}} />
+        <PlaceList
+          deletePlace={this.deletePlace}
+          names={this.state.names}
+          keys={this.state.keys}
+        />
       </ErrorBoundary>
     );
   }

@@ -9,7 +9,7 @@ describe('Place', () => {
     const div = document.createElement('div');
 
     ReactDOM.render(
-      <Place name="name" keys="1" deletePlace={jest.fn()} />,
+      <Place name="name" id={1} deletePlace={jest.fn()} />,
       div,
     );
     ReactDOM.unmountComponentAtNode(div);
@@ -17,7 +17,7 @@ describe('Place', () => {
 
   test('Place snapshot', () => {
     const component = renderer.create(
-      <Place name="name" keys="1" deletePlace={jest.fn()} />,
+      <Place name="name" id={1} deletePlace={jest.fn()} />,
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

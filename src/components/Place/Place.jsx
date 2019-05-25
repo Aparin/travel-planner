@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import ErrorBoundary from '../ErrorBoundary';
 import './Place.css';
 
-const Place = (props) => {
-  const { id, name, deletePlace } = props;
+const Place = ({ id, name, deletePlace }) => {
   return (
     <ErrorBoundary>
-      <span key={id}>
+      <span>
         <span className="name">
           { name }
         </span>
