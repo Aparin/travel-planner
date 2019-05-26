@@ -34,7 +34,24 @@ class App extends Component {
     });
   }
 
-  deletePlace = () => {};
+  deletePlace = (key) => {
+    const { names } = this.state;
+    const newNames = names.filter((name, index) => {
+      if (this.state.keys[index] !== key) return name;
+      return undefined;
+    });
+
+    const { keys } = this.state;
+    const newKeys = keys.filter((k) => {
+      if (k !== key) return key;
+      return undefined;
+    });
+
+    this.setState({
+      keys: newKeys,
+      names: newNames,
+    });
+  }
 
   render() {
     const { showNameList } = this.state;
