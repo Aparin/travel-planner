@@ -9,8 +9,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      names: ['1', '2'],
-      keys: [1, 2],
+      names: [],
+      keys: [],
+      lastKey: 1,
+      showNameList: false,
     };
   }
 
@@ -18,23 +20,41 @@ class App extends Component {
     const newNames = this.state.names;
     newNames.push(name);
 
-    this.setState({
-      names: newNames,
+    const newKeys = this.state.keys;
+    newKeys.push(this.state.lastKey);
+
+    this.setState(() => {
+      const { lastKey } = this.state;
+      return {
+        names: newNames,
+        lastKey: lastKey + 1,
+        keys: newKeys,
+        showNameList: true,
+      };
     });
   }
 
   deletePlace = () => {};
 
   render() {
+    const { showNameList } = this.state;
     return (
       <ErrorBoundary>
         <h1>Travel Planner</h1>
-        <InputPlaceName addPoint={this.addPoint} />
-        <PlaceList
-          deletePlace={this.deletePlace}
-          names={this.state.names}
-          keys={this.state.keys}
-        />
+        <div id="leftGroup">
+          <InputPlaceName addPoint={this.addPoint} />
+          {
+            showNameList
+              && (
+              <PlaceList
+                deletePlace={this.deletePlace}
+                names={this.state.names}
+                keys={this.state.keys}
+              />
+              )
+          }
+        </div>
+
       </ErrorBoundary>
     );
   }
