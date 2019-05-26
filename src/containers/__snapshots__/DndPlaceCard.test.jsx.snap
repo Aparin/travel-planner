@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DndPlaceCard DndPlaceCard snapshot 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "white",
+      "border": "1px dashed gray",
+      "cursor": "move",
+      "display": "block",
+      "margin": "5px auto",
+      "opacity": 1,
+      "padding": "5px",
+    }
+  }
+>
+  <div>
+    Name of Place
+  </div>
+</div>
+`;
