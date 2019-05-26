@@ -4,6 +4,7 @@ import './App.css';
 import ErrorBoundary from '../ErrorBoundary';
 import InputPlaceName from '../InputPlaceName';
 import PlaceList from '../PlaceList';
+import Map from '../Map';
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class App extends Component {
       keys: [],
       lastKey: 1,
       showNameList: false,
+      startCoord: [],
     };
   }
 
@@ -53,6 +55,9 @@ class App extends Component {
     });
   }
 
+  onError = () => {
+  }
+
   render() {
     const { showNameList } = this.state;
     return (
@@ -71,7 +76,7 @@ class App extends Component {
               )
           }
         </div>
-
+        <Map center={this.state.startCoord} onError={this.onError} />
       </ErrorBoundary>
     );
   }
