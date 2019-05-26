@@ -5,66 +5,18 @@ Array [
   <h1>
     Travel Planner
   </h1>,
-  <input
-    className="input"
-    id="NewPlaceName"
-    onChange={[Function]}
-    onKeyUp={[Function]}
-    placeholder="Введите название места и нажмите 'Enter'"
-    type="text"
-    value=""
-  />,
-  <span>
-    <span
-      className="name"
-    >
-      1
-    </span>
-    <svg
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-          "height": "24px",
-          "marginBottom": "-6px",
-          "marginLeft": "8px",
-          "width": "24px",
-        }
-      }
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
-        dominantBaseline="inherit"
-        fill="red"
-      />
-    </svg>
-  </span>,
-  <span>
-    <span
-      className="name"
-    >
-      2
-    </span>
-    <svg
-      onClick={[Function]}
-      style={
-        Object {
-          "cursor": "pointer",
-          "height": "24px",
-          "marginBottom": "-6px",
-          "marginLeft": "8px",
-          "width": "24px",
-        }
-      }
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
-        dominantBaseline="inherit"
-        fill="red"
-      />
-    </svg>
-  </span>,
+  <div
+    id="leftGroup"
+  >
+    <input
+      className="input"
+      id="NewPlaceName"
+      onChange={[Function]}
+      onKeyUp={[Function]}
+      placeholder="Введите название места и нажмите 'Enter'"
+      type="text"
+      value=""
+    />
+  </div>,
 ]
 `;

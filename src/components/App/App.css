@@ -2,3 +2,9 @@ h1 {
     color: #27aedb;
     text-align: center;
 }
+
+#leftGroup {
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
