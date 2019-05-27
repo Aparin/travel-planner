@@ -5,6 +5,7 @@ import ErrorBoundary from '../ErrorBoundary';
 import InputPlaceName from '../InputPlaceName';
 import PlaceList from '../PlaceList';
 import Map from '../Map';
+import yaMap from '../../services/yaMap';
 
 class App extends Component {
   constructor(props) {
@@ -26,15 +27,18 @@ class App extends Component {
     const newKeys = this.state.keys;
     newKeys.push(this.state.lastKey);
 
-    this.setState(() => {
-      const { lastKey } = this.state;
-      return {
-        names: newNames,
-        lastKey: lastKey + 1,
-        keys: newKeys,
-        showNameList: true,
-      };
-    });
+    const { lastKey } = this.state;
+    yaMap.addGeoObject(
+      name,
+      lastKey,
+    );
+
+    this.setState(() => ({
+      names: newNames,
+      lastKey: lastKey + 1,
+      keys: newKeys,
+      showNameList: true,
+    }));
   }
 
   deletePlace = (key) => {

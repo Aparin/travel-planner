@@ -53,6 +53,58 @@ const yaMap = {
     this.onError = onError;
     return undefined;
   },
+
+  addGeoObject(name, id) {
+    try {
+      const { ymaps } = this;
+      const coord = this.mapCenterCoord;
+      ymaps.ready(() => {
+        const myGeoObject = new ymaps.GeoObject(
+          {
+            // Описание геометрии.
+            geometry: {
+              type: 'Point',
+              coordinates: coord,
+            },
+            // Свойства.
+            properties: {
+              // Контент метки.
+              balloonContent: `Название места: ${name}.`,
+            },
+          },
+          {
+            // Опции.
+            preset: 'islands#icon',
+            iconColor: '#0000ff',
+            // Метку можно перемещать.
+            draggable: true,
+          },
+        );
+        this.GeoObjectCollection.add(myGeoObject);
+        this.geoObjects.push({ id, myGeoObject });
+
+        myGeoObject.events.add('drag', (e) => {
+          const target = e.get('target');
+          myGeoObject.geometry.setCoordinates(target.geometry.getCoordinates());
+        });
+
+        myGeoObject.events.add('dragend', (e) => {
+          const target = e.get('target');
+          const coordOfGeoObj = target.geometry.getCoordinates();
+
+          this.getAdress(coordOfGeoObj).then((adrs) => {
+            myGeoObject.properties.set(
+              'balloonContent',
+              `Название места: ${name}<br> Адрес: ${adrs}`,
+            );
+          });
+        });
+      });
+    } catch {
+      this.onError();
+    }
+    return this.GeoObjectCollection;
+  },
 };
 
 export default yaMap;
