@@ -4,6 +4,7 @@ const yaMap = {
   geoObjects: [],
   GeoObjectCollection: {},
   mapCenterCoord: [],
+  pLine: null,
 
   // public method
   mapInit(refEl, center, onError) {
@@ -85,10 +86,12 @@ const yaMap = {
           );
           this.GeoObjectCollection.add(myGeoObject);
           this.geoObjects.push({ id, myGeoObject });
+          this.polyline();
 
           myGeoObject.events.add('drag', (e) => {
             const target = e.get('target');
             myGeoObject.geometry.setCoordinates(target.geometry.getCoordinates());
+            this.polyline();
           });
 
           myGeoObject.events.add('dragend', (e) => {
@@ -127,6 +130,32 @@ const yaMap = {
       }
       return undefined;
     });
+    this.polyline();
+  },
+
+  polyline() {
+    if (this.geoObjects.length <= 1) {
+      if (this.pLine) {
+        this.GeoObjectCollection.remove(this.pLine);
+        this.pLine = null;
+      }
+      return undefined;
+    }
+    const coords = this.geoObjects.map(obj => obj.myGeoObject.geometry.getCoordinates());
+
+    if (!this.pLine) {
+      this.pLine = new this.ymaps.Polyline(
+        coords,
+        {},
+        {
+          strokeWidth: 3,
+          strokeColor: '0000ff',
+        },
+      );
+      this.GeoObjectCollection.add(this.pLine);
+    } else this.pLine.geometry.setCoordinates(coords);
+
+    return undefined;
   },
 
 };
