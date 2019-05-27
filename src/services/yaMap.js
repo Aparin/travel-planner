@@ -119,6 +119,16 @@ const yaMap = {
     return adress;
   },
 
+  deleteGeoObject(id) {
+    this.geoObjects.filter((obj, index) => {
+      if (obj.id === id) {
+        this.GeoObjectCollection.remove(obj.myGeoObject);
+        this.geoObjects.splice(index, 1);
+      }
+      return undefined;
+    });
+  },
+
 };
 
 export default yaMap;

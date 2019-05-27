@@ -58,6 +58,8 @@ class App extends Component {
       keys: newKeys,
       names: newNames,
     });
+
+    yaMap.deleteGeoObject(key);
   }
 
   onError = () => {
