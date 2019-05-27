@@ -122,6 +122,7 @@ const yaMap = {
     return adress;
   },
 
+  // public method
   deleteGeoObject(id) {
     this.geoObjects.filter((obj, index) => {
       if (obj.id === id) {
@@ -133,6 +134,7 @@ const yaMap = {
     this.polyline();
   },
 
+  // private method
   polyline() {
     if (this.geoObjects.length <= 1) {
       if (this.pLine) {
@@ -156,6 +158,13 @@ const yaMap = {
     } else this.pLine.geometry.setCoordinates(coords);
 
     return undefined;
+  },
+
+  // public method
+  moveGeoObject(from, to) {
+    const moveObj = this.geoObjects.splice(from, 1);
+    this.geoObjects.splice(to, 0, ...moveObj);
+    this.polyline();
   },
 
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import update from 'immutability-helper';
 import PlaceCard from './DndPlaceCard';
+import yaMap from '../services/yaMap';
 
 const style = {
   width: 330, margin: '0px auto',
@@ -25,6 +26,9 @@ const DndConteiner = ({
       const newOrderKeys = keys;
       const moveKey = newOrderKeys.splice(dragIndex, 1);
       newOrderKeys.splice(hoverIndex, 0, ...moveKey);
+
+      // change order of geoobjects and polyline
+      yaMap.moveGeoObject(dragIndex, hoverIndex);
 
       setCards(
         update(cards, {
