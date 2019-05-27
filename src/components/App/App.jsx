@@ -81,7 +81,7 @@ class App extends Component {
           3. Повторяйте,  пока не построите маршрут.
           4. Последовательность маршрута можно менять перетаскивая названия точек маршрута.
         </div>
-        
+
         <div id="leftGroup">
           <InputPlaceName addPoint={this.addPoint} />
           {
