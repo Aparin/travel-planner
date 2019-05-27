@@ -15,6 +15,7 @@ class App extends Component {
       lastKey: 1,
       showNameList: false,
       startCoord: [55.76, 37.64],
+      isErrMess: false,
     };
   }
 
@@ -56,6 +57,7 @@ class App extends Component {
   }
 
   onError = () => {
+    this.setState({ isErrMess: true });
   }
 
   render() {
@@ -63,6 +65,9 @@ class App extends Component {
     return (
       <ErrorBoundary>
         <h1>Travel Planner</h1>
+        { this.state.isErrMess
+        && <div id="msg">Ошибка доступа к серверу Яндекс-Карт. Проверьте соединение с интернетом и перезагрузите страницу</div>
+        }
         <div id="leftGroup">
           <InputPlaceName addPoint={this.addPoint} />
           {
