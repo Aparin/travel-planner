@@ -1,6 +1,6 @@
 {
     "name": "travel-planner",
-    "version": "0.1.20",
+    "version": "0.1.21",
     "private": true,
     "dependencies": {
         "immutability-helper": "^3.0.0",
