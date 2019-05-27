@@ -5,6 +5,7 @@ const yaMap = {
   GeoObjectCollection: {},
   mapCenterCoord: [],
 
+  // public method
   mapInit(refEl, center, onError) {
     const loadAPI = url => new Promise((resolve, reject) => {
       const script = document.createElement('script');
@@ -54,49 +55,52 @@ const yaMap = {
     return undefined;
   },
 
+  // public method
   addGeoObject(name, id) {
     try {
       const { ymaps } = this;
       const coord = this.mapCenterCoord;
-      ymaps.ready(() => {
-        const myGeoObject = new ymaps.GeoObject(
-          {
-            // Описание геометрии.
-            geometry: {
-              type: 'Point',
-              coordinates: coord,
+      this.getAdress(coord).then((adress) => {
+        ymaps.ready(() => {
+          const myGeoObject = new ymaps.GeoObject(
+            {
+              // Описание геометрии.
+              geometry: {
+                type: 'Point',
+                coordinates: coord,
+              },
+              // Свойства.
+              properties: {
+                // Контент метки.
+                balloonContent: `Название места: ${name}<br> Адрес: ${adress}.`,
+              },
             },
-            // Свойства.
-            properties: {
-              // Контент метки.
-              balloonContent: `Название места: ${name}.`,
+            {
+              // Опции.
+              preset: 'islands#icon',
+              iconColor: '#0000ff',
+              // Метку можно перемещать.
+              draggable: true,
             },
-          },
-          {
-            // Опции.
-            preset: 'islands#icon',
-            iconColor: '#0000ff',
-            // Метку можно перемещать.
-            draggable: true,
-          },
-        );
-        this.GeoObjectCollection.add(myGeoObject);
-        this.geoObjects.push({ id, myGeoObject });
+          );
+          this.GeoObjectCollection.add(myGeoObject);
+          this.geoObjects.push({ id, myGeoObject });
 
-        myGeoObject.events.add('drag', (e) => {
-          const target = e.get('target');
-          myGeoObject.geometry.setCoordinates(target.geometry.getCoordinates());
-        });
+          myGeoObject.events.add('drag', (e) => {
+            const target = e.get('target');
+            myGeoObject.geometry.setCoordinates(target.geometry.getCoordinates());
+          });
 
-        myGeoObject.events.add('dragend', (e) => {
-          const target = e.get('target');
-          const coordOfGeoObj = target.geometry.getCoordinates();
+          myGeoObject.events.add('dragend', (e) => {
+            const target = e.get('target');
+            const coordOfGeoObj = target.geometry.getCoordinates();
 
-          this.getAdress(coordOfGeoObj).then((adrs) => {
-            myGeoObject.properties.set(
-              'balloonContent',
-              `Название места: ${name}<br> Адрес: ${adrs}`,
-            );
+            this.getAdress(coordOfGeoObj).then((adrs) => {
+              myGeoObject.properties.set(
+                'balloonContent',
+                `Название места: ${name}<br> Адрес: ${adrs}`,
+              );
+            });
           });
         });
       });
@@ -105,6 +109,16 @@ const yaMap = {
     }
     return this.GeoObjectCollection;
   },
+
+  // private method
+  getAdress(coord) {
+    const { ymaps } = this;
+    const adress = ymaps
+      .geocode(coord)
+      .then(res => res.geoObjects.get(0).getAddressLine());
+    return adress;
+  },
+
 };
 
 export default yaMap;
