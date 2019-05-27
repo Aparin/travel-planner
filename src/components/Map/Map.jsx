@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import ErrorBoundary from '../ErrorBoundary';
+import yaMap from '../../services/yaMap';
 
 class Map extends Component {
   constructor(props) {
@@ -11,7 +12,11 @@ class Map extends Component {
   }
 
   componentDidMount() {
-
+    yaMap.mapInit(
+      this.map.current,
+      this.center,
+      this.onError,
+    );
   }
 
   render() {

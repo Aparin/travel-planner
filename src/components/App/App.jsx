@@ -14,7 +14,7 @@ class App extends Component {
       keys: [],
       lastKey: 1,
       showNameList: false,
-      startCoord: [],
+      startCoord: [55.76, 37.64],
     };
   }
 
