@@ -1,7 +1,8 @@
 {
     "name": "travel-planner",
-    "version": "0.1.22",
+    "version": "0.1.23",
     "private": true,
+    "homepage": "https://efeto.ru/apps/travel-planner/",
     "dependencies": {
         "immutability-helper": "^3.0.0",
         "prop-types": "^15.7.2",
