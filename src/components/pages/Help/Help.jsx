@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 
 const Help = () => (
   <React.Fragment>
-    <Link to="/">
+    <Link to="/apps/travel-planner/">
       <Button
         variant="outlined"
         color="primary"

@@ -11,8 +11,8 @@ const App = () => (
     <h1>Travel Planner</h1>
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={Main} exact />
-        <Route path="/help" component={Help} />
+        <Route path="/apps/travel-planner/" component={Main} exact />
+        <Route path="/apps/travel-planner/help" component={Help} />
       </Switch>
     </BrowserRouter>
   </ErrorBoundary>

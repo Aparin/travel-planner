@@ -78,7 +78,7 @@ class App extends Component {
         }
 
         <div id="leftGroup">
-          <Link to="/help">
+          <Link to="/apps/travel-planner/help">
             <Button
               variant="outlined"
               color="primary"
