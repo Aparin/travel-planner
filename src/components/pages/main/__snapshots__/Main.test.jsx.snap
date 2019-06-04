@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Main snapshot 1`] = `
+Array [
+  <div
+    id="leftGroup"
+  >
+    <input
+      className="input"
+      id="NewPlaceName"
+      onChange={[Function]}
+      onKeyUp={[Function]}
+      placeholder="Введите название места и нажмите 'Enter'"
+      type="text"
+      value=""
+    />
+  </div>,
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+        "height": "500px",
+        "width": "800px",
+      }
+    }
+  />,
+]
+`;

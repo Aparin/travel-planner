@@ -1,104 +1,19 @@
-/* eslint-disable react/destructuring-assignment */
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import './App.css';
 import ErrorBoundary from '../ErrorBoundary';
-import InputPlaceName from '../InputPlaceName';
-import PlaceList from '../PlaceList';
-import Map from '../Map';
-import yaMap from '../../services/yaMap';
+import Main from '../pages/main';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      names: [],
-      keys: [],
-      lastKey: 1,
-      showNameList: false,
-      startCoord: [55.76, 37.64],
-      isErrMess: false,
-    };
-  }
-
-  addPoint = (name) => {
-    const newNames = this.state.names;
-    newNames.push(name);
-
-    const newKeys = this.state.keys;
-    newKeys.push(this.state.lastKey);
-
-    const { lastKey } = this.state;
-    yaMap.addGeoObject(
-      name,
-      lastKey,
-    );
-
-    this.setState(() => ({
-      names: newNames,
-      lastKey: lastKey + 1,
-      keys: newKeys,
-      showNameList: true,
-    }));
-  }
-
-  deletePlace = (key) => {
-    const { names } = this.state;
-    const newNames = names.filter((name, index) => {
-      if (this.state.keys[index] !== key) return name;
-      return undefined;
-    });
-
-    const { keys } = this.state;
-    const newKeys = keys.filter((k) => {
-      if (k !== key) return key;
-      return undefined;
-    });
-
-    this.setState({
-      keys: newKeys,
-      names: newNames,
-    });
-
-    yaMap.deleteGeoObject(key);
-  }
-
-  onError = () => {
-    this.setState({ isErrMess: true });
-  }
-
-  render() {
-    const { showNameList } = this.state;
-    return (
-      <ErrorBoundary>
-        <h1>Travel Planner</h1>
-        { this.state.isErrMess
-        && <div id="msg">Ошибка доступа к серверу Яндекс-Карт. Проверьте соединение с интернетом и перезагрузите страницу</div>
-        }
-        <div style={{ margin: '20px 50px 20px 40px', fontSize: '17px' }}>
-          1. Введите адрес или название объекта в поле в верхнем левом углу карты.
-          2. Введите название первой точки маршрута в поле слева от карты.
-          <br />
-          3. Повторяйте,  пока не построите маршрут.
-          4. Последовательность маршрута можно менять перетаскивая названия точек маршрута.
-        </div>
-
-        <div id="leftGroup">
-          <InputPlaceName addPoint={this.addPoint} />
-          {
-            showNameList
-              && (
-              <PlaceList
-                deletePlace={this.deletePlace}
-                names={this.state.names}
-                keys={this.state.keys}
-              />
-              )
-          }
-        </div>
-        <Map center={this.state.startCoord} onError={this.onError} />
-      </ErrorBoundary>
-    );
-  }
-}
+const App = () => (
+  <ErrorBoundary>
+    <h1>Travel Planner</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={Main} exact />
+      </Switch>
+    </BrowserRouter>
+  </ErrorBoundary>
+);
 
 export default App;

@@ -1,0 +1,11 @@
+#leftGroup {
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#msg {
+    color: red;
+    margin: 40px;
+    font-size: 24px;
+}
