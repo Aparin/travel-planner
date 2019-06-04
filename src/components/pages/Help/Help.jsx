@@ -1,7 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const Help = () => (
   <React.Fragment>
+    <Link to="/">
+      <Button
+        variant="outlined"
+        color="primary"
+        style={{ marginTop: '10px' }}
+      >
+      Вернуться
+      </Button>
+    </Link>
     <h2>Описание функционала и использование</h2>
     <p>
       SPA представляет собой простой планировщик маршрутов.

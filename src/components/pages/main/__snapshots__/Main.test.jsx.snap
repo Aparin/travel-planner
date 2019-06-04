@@ -5,6 +5,39 @@ Array [
   <div
     id="leftGroup"
   >
+    <a
+      href="/help"
+      onClick={[Function]}
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+        disabled={false}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "marginBottom": "20px",
+            "marginLeft": "100px",
+          }
+        }
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          Как пользоваться
+        </span>
+      </button>
+    </a>
     <input
       className="input"
       id="NewPlaceName"

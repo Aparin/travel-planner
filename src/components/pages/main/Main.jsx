@@ -1,5 +1,8 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+
 import './Main.css';
 import ErrorBoundary from '../../ErrorBoundary';
 import InputPlaceName from '../../InputPlaceName';
@@ -75,6 +78,15 @@ class App extends Component {
         }
 
         <div id="leftGroup">
+          <Link to="/help">
+            <Button
+              variant="outlined"
+              color="primary"
+              style={{ marginLeft: '100px', marginBottom: '20px' }}
+            >
+            Как пользоваться
+            </Button>
+          </Link>
           <InputPlaceName addPoint={this.addPoint} />
           {
             showNameList
