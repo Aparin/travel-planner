@@ -4,15 +4,6 @@ import Button from '@material-ui/core/Button';
 
 const Help = () => (
   <React.Fragment>
-    <Link to="/apps/travel-planner/">
-      <Button
-        variant="outlined"
-        color="primary"
-        style={{ marginTop: '10px' }}
-      >
-      Вернуться
-      </Button>
-    </Link>
     <h2>Описание функционала и использование</h2>
     <p>
       SPA представляет собой простой планировщик маршрутов.
@@ -45,6 +36,15 @@ const Help = () => (
       перетаскивая их имена слева от карты, при этом очерёдность линий,
       соединяющих точки на карте, также будет меняться.
     </p>
+    <Link to="/main">
+      <Button
+        variant="outlined"
+        color="primary"
+        style={{ marginTop: '10px' }}
+      >
+      Спланировать путешествие
+      </Button>
+    </Link>
   </React.Fragment>
 );
 

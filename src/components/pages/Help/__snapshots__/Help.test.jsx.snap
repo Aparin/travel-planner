@@ -2,38 +2,6 @@
 
 exports[`Help Help snapshot 1`] = `
 Array [
-  <a
-    href="/"
-    onClick={[Function]}
-  >
-    <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
-      disabled={false}
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      style={
-        Object {
-          "marginTop": "10px",
-        }
-      }
-      tabIndex={0}
-      type="button"
-    >
-      <span
-        className="MuiButton-label"
-      >
-        Вернуться
-      </span>
-    </button>
-  </a>,
   <h2>
     Описание функционала и использование
   </h2>,
@@ -76,5 +44,37 @@ Array [
   <p>
     - очерёдность точек маршрута можно менять, перетаскивая их имена слева от карты, при этом очерёдность линий, соединяющих точки на карте, также будет меняться.
   </p>,
+  <a
+    href="/main"
+    onClick={[Function]}
+  >
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+      disabled={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "marginTop": "10px",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        Спланировать путешествие
+      </span>
+    </button>
+  </a>,
 ]
 `;

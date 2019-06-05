@@ -5,60 +5,79 @@ Array [
   <h1>
     Travel Planner
   </h1>,
-  <div
-    id="leftGroup"
+  <h2>
+    Описание функционала и использование
+  </h2>,
+  <p>
+    SPA представляет собой простой планировщик маршрутов. Адаптирован только для настольных компьютеров.
+  </p>,
+  <h2>
+    Как добавить точку маршрута
+  </h2>,
+  <p>
+    1. Выбираем место, это можно сделать 2 способами:
+  </p>,
+  <p>
+    - ввести адрес, или название объекта в левом верхнем углу карты, или,
+  </p>,
+  <p>
+    - выставить карту так, чтобы нужная точка была примерно в центре карты (потом позицию можно будет уточнить).
+  </p>,
+  <p>
+    2. Ввести название точки маршрута в поле слева от карты и нажать "Enter".
+  </p>,
+  <h2>
+    Как использовать
+  </h2>,
+  <p>
+    - Точку маршрута можно удалить нажав на красную корзину,
+  </p>,
+  <p>
+    - если кликнуть на маркере точки на карте, появится окно с названием точки и адресом,
+  </p>,
+  <p>
+    - маркер на карте можно передвигать, при этом адрес будет автоматически менятся (с небольшой задержкой, которую вы скорее всего даже не заметите),
+  </p>,
+  <p>
+    - когда точек маршрута будет больше одной, они начнут соединятся линиями,
+  </p>,
+  <p>
+    - при перетаскивании маркера точки на карте, линии соединяющие соседнии точки, также будут перестраиватся,
+  </p>,
+  <p>
+    - очерёдность точек маршрута можно менять, перетаскивая их имена слева от карты, при этом очерёдность линий, соединяющих точки на карте, также будет меняться.
+  </p>,
+  <a
+    href="/main"
+    onClick={[Function]}
   >
-    <a
-      href="/help"
-      onClick={[Function]}
-    >
-      <button
-        className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
-        disabled={false}
-        onBlur={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        style={
-          Object {
-            "marginBottom": "20px",
-            "marginLeft": "100px",
-          }
-        }
-        tabIndex={0}
-        type="button"
-      >
-        <span
-          className="MuiButton-label"
-        >
-          Как пользоваться
-        </span>
-      </button>
-    </a>
-    <input
-      className="input"
-      id="NewPlaceName"
-      onChange={[Function]}
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+      disabled={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
       onKeyUp={[Function]}
-      placeholder="Введите название места и нажмите 'Enter'"
-      type="text"
-      value=""
-    />
-  </div>,
-  <div
-    style={
-      Object {
-        "display": "inline-block",
-        "height": "500px",
-        "width": "800px",
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "marginTop": "10px",
+        }
       }
-    }
-  />,
+      tabIndex={0}
+      type="button"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        Спланировать путешествие
+      </span>
+    </button>
+  </a>,
 ]
 `;

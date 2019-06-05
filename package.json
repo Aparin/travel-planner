@@ -1,8 +1,8 @@
 {
     "name": "travel-planner",
-    "version": "0.1.26",
+    "version": "0.1.28",
     "private": true,
-    "homepage": "https://efeto.ru/apps/travel-planner/",
+    "homepage": "https://efeto.ru/apps/build/",
     "dependencies": {
         "@material-ui/core": "^4.0.2",
         "immutability-helper": "^3.0.0",
