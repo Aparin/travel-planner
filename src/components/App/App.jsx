@@ -9,7 +9,7 @@ import Help from '../pages/Help';
 const App = () => (
   <ErrorBoundary>
     <h1>Travel Planner</h1>
-    <BrowserRouter>
+    <BrowserRouter basename="/apps/travel-planner">
       <Switch>
         <Route path="/" exact component={Help} />
         <Route path="/main" component={Main} />
